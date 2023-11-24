@@ -5,7 +5,7 @@ import cucumber.api.java.en.When;
 
 /**
  * @author Rafael Jakubovsky
- * @version 0.0.11
+ * @version 0.0.12
  * @since Release 0.0.1 da aplicação
  *
  * Classe de utilização do Cucumber
@@ -13,6 +13,7 @@ import cucumber.api.java.en.When;
 public class Conta {
     private int accountBalance;
     private boolean isSpecial;
+    private int transferCount;
 
     // Cenários de conta especial.
 
@@ -24,7 +25,8 @@ public class Conta {
      */
     @Given("^Um cliente especial com saldo atual de -(\\d+) reais$")
     public void um_cliente_especial_com_saldo_atual_de_reais(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        isSpecial = true;
+        accountBalance = arg1;
         throw new PendingException();
     }
 
@@ -37,7 +39,7 @@ public class Conta {
      */
     @When("^for solicitado um saque no valor de (\\d+) reais$")
     public void for_solicitado_un_saque_no_valor_de_reais(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        saque(arg1);
         throw new PendingException();
     }
 
@@ -50,7 +52,7 @@ public class Conta {
      */
     @Then("^deve efetuar o saque e atualizar o saldo da conta para -(\\d+) reais$")
     public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        assert arg1 == accountBalance;
         throw new PendingException();
     }
 
@@ -61,7 +63,7 @@ public class Conta {
      */
     @Then("^check more outcomes$")
     public void check_more_outcomes() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        assert isSpecial;
         throw new PendingException();
     }
 
@@ -75,7 +77,8 @@ public class Conta {
      */
     @Given("^Um cliente comum com saldo atual de -(\\d+) reais$")
     public void um_cliente_comum_com_saldo_atual_de_reais(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        accountBalance = arg1;
+        isSpecial = false;
         throw new PendingException();
     }
 
@@ -88,7 +91,7 @@ public class Conta {
      */
     @When("^solicitar um saque no valor de (\\d+) reais$")
     public void solicitar_um_saque_no_valor_de_reais(int arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        saque(arg1);
         throw new PendingException();
     }
 
@@ -100,7 +103,7 @@ public class Conta {
      */
     @Then("^não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente$")
     public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_Saldo_Insuficiente() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        assert transferCount == 0;
         throw new PendingException();
     }
 
@@ -110,16 +113,12 @@ public class Conta {
      * @param ammount Define o valor do saque
      */
     public void saque(int ammount) {
-    }
-
-    /**
-     * Verifica a possibilidade de realização da operação.
-     *
-     * @param ammount Define o saldo atual
-     * @return {@code true} se estiver apto para sacar, {@code false} se não estiver apto para sacar
-     */
-    public boolean saquePermitido(int ammount) {
-        return false;
+        if(accountBalance >= ammount || isSpecial) {
+            accountBalance -= ammount;
+            transferCount++;
+        } else {
+            System.out.println("Saldo Insuficiente");
+        }
     }
 
     /**
@@ -133,6 +132,8 @@ public class Conta {
 
     /**
      * Define o saldo da conta.
+     *
+     * @param accountBalance Definir novo saldo
      */
     public void setAccountBalance(int accountBalance) {
         this.accountBalance = accountBalance;
