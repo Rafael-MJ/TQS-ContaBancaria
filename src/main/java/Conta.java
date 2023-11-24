@@ -11,13 +11,15 @@ import cucumber.api.java.en.When;
  * Classe de utilização do Cucumber
  */
 public class Conta {
+    private int accountBalance;
+    private boolean isSpecial;
 
     // Cenários de conta especial.
 
     /**
      * Simula uma tentativa de operação de um cliente especial com saldo negativo.
      *
-     * @param arg1 Define o valor da transação
+     * @param arg1 Define o valor do saldo
      * @throws Throwable Lançamento de possível exceção
      */
     @Given("^Um cliente especial com saldo atual de -(\\d+) reais$")
@@ -43,7 +45,7 @@ public class Conta {
      * Simula um cenário da realização de uma operação de um cliente
      * especial com saldo negativo.
      *
-     * @param arg1 Define o valor da transação
+     * @param arg1 Define o valor final do saldo
      * @throws Throwable Lançamento de possível exceção
      */
     @Then("^deve efetuar o saque e atualizar o saldo da conta para -(\\d+) reais$")
@@ -68,7 +70,7 @@ public class Conta {
     /**
      * Simula uma tentativa de operação de um cliente comum com saldo negativo.
      *
-     * @param arg1 Define o valor da transação
+     * @param arg1 Define o valor do saldo
      * @throws Throwable Lançamento de possível exceção
      */
     @Given("^Um cliente comum com saldo atual de -(\\d+) reais$")
@@ -102,4 +104,55 @@ public class Conta {
         throw new PendingException();
     }
 
+    /**
+     * Realiza a operação de saque.
+     *
+     * @param ammount Define o valor do saque
+     */
+    public void saque(int ammount) {
+    }
+
+    /**
+     * Verifica a possibilidade de realização da operação.
+     *
+     * @param ammount Define o saldo atual
+     * @return {@code true} se estiver apto para sacar, {@code false} se não estiver apto para sacar
+     */
+    public boolean saquePermitido(int ammount) {
+        return false;
+    }
+
+    /**
+     * Verifica o saldo da conta.
+     *
+     * @return O saldo da conta
+     */
+    public int getAccountBalance() {
+        return accountBalance;
+    }
+
+    /**
+     * Define o saldo da conta.
+     */
+    public void setAccountBalance(int accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    /**
+     * Verifica o status da conta.
+     *
+     * @return {@code true} se a conta é especial, {@code false} se a conta for comum
+     */
+    public boolean isSpecial() {
+        return isSpecial;
+    }
+
+    /**
+     * Define o status da conta.
+     *
+     * @param special {@code true} define como especial, {@code false} define como comum
+     */
+    public void setSpecial(boolean special) {
+        isSpecial = special;
+    }
 }

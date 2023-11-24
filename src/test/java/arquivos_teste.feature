@@ -1,11 +1,11 @@
-#Author: your.email@your.domain.com
-#Keywords Sumary :
+#Author: [211908] Rafael M Jakubovsky
+#Keywords Summary:
 #Feature: List of scenarios.
-#Scenario: Business rule through list of steps with argunents.
+#Scenario: Business rule through list of steps with arguments.
 #Given: Some precondition Step
 #When: Some key actions
 #Then: To observe outcomes or validation
-#And,But: TO enumerate more Given,When,Then, steps
+#And,But: To enumerate more Given,When,Then,Steps
 #Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
 #Examples: Container for s table
 #Background: List of steps run before each of the scenarios
@@ -15,7 +15,7 @@
 #<> (placeholder)
 #""
 # (Comments)
-#Sanple Feature Definition Template
+#Feature para a realização de testes
 @tag
 Feature: Cliente faz saque de dinheiro como um cliente,
   eu gostaria de sacar dinheiro em caixa eletrônico,
