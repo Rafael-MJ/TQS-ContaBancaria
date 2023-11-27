@@ -1,0 +1,238 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#Author: [211908] Rafael M Jakubovsky"
+      },
+      {
+        "line": 2,
+        "value": "#Keywords Summary:"
+      },
+      {
+        "line": 3,
+        "value": "#Feature: List of scenarios."
+      },
+      {
+        "line": 4,
+        "value": "#Scenario: Business rule through list of steps with arguments."
+      },
+      {
+        "line": 5,
+        "value": "#Given: Some precondition Step"
+      },
+      {
+        "line": 6,
+        "value": "#When: Some key actions"
+      },
+      {
+        "line": 7,
+        "value": "#Then: To observe outcomes or validation"
+      },
+      {
+        "line": 8,
+        "value": "#And,But: To enumerate more Given,When,Then,Steps"
+      },
+      {
+        "line": 9,
+        "value": "#Scenario Outline: List of steps for data-driven as an Examples and \u003cplaceholder\u003e"
+      },
+      {
+        "line": 10,
+        "value": "#Examples: Container for s table"
+      },
+      {
+        "line": 11,
+        "value": "#Background: List of steps run before each of the scenarios"
+      },
+      {
+        "line": 12,
+        "value": "#\"\"\" (Doc Strings)"
+      },
+      {
+        "line": 13,
+        "value": "#| (Data Tables)"
+      },
+      {
+        "line": 14,
+        "value": "#@ (Tags/Labels):To group Scenarios"
+      },
+      {
+        "line": 15,
+        "value": "#\u003c\u003e (placeholder)"
+      },
+      {
+        "line": 16,
+        "value": "#\"\""
+      },
+      {
+        "line": 17,
+        "value": "# (Comments)"
+      },
+      {
+        "line": 18,
+        "value": "#Feature para a realização de testes"
+      }
+    ],
+    "line": 20,
+    "elements": [
+      {
+        "line": 25,
+        "name": "Cliente especial com saldo negativo",
+        "description": "",
+        "id": "cliente-faz-saque-de-dinheiro-como-um-cliente,;cliente-especial-com-saldo-negativo",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 26,
+            "name": "Um cliente especial com saldo atual de -200 reais",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 27,
+            "name": "for solicitado um saque no valor de 100 reais",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 28,
+            "name": "deve efetuar o saque e atualizar o saldo da conta para -300 reais",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 29,
+            "name": "check more outcomes",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 24,
+            "name": "@tag1"
+          }
+        ]
+      },
+      {
+        "line": 39,
+        "name": "Cliente comum com saldo negativo",
+        "description": "",
+        "id": "cliente-faz-saque-de-dinheiro-como-um-cliente,;cliente-comum-com-saldo-negativo;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 33,
+            "name": "Um cliente comum com saldo atual de -200 reais",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 34,
+            "name": "solicitar um saque no valor de 200 reais",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 35,
+            "name": "não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 19,
+            "name": "@tag"
+          },
+          {
+            "line": 31,
+            "name": "@tag2"
+          }
+        ]
+      },
+      {
+        "line": 40,
+        "name": "Cliente comum com saldo negativo",
+        "description": "",
+        "id": "cliente-faz-saque-de-dinheiro-como-um-cliente,;cliente-comum-com-saldo-negativo;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 33,
+            "name": "Um cliente comum com saldo atual de -200 reais",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 34,
+            "name": "solicitar um saque no valor de 200 reais",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 35,
+            "name": "não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 19,
+            "name": "@tag"
+          },
+          {
+            "line": 31,
+            "name": "@tag2"
+          }
+        ]
+      }
+    ],
+    "name": "Cliente faz saque de dinheiro como um cliente,",
+    "description": "eu gostaria de sacar dinheiro em caixa eletrônico,\r\npara que eu não tenha que esperar em uma fila do banco.",
+    "id": "cliente-faz-saque-de-dinheiro-como-um-cliente,",
+    "keyword": "Feature",
+    "uri": "java/arquivos_teste.feature",
+    "tags": [
+      {
+        "line": 19,
+        "name": "@tag"
+      }
+    ]
+  }
+]
