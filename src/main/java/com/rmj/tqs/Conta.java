@@ -6,20 +6,20 @@ import io.cucumber.java.en.When;
 
 /**
  * @author Rafael Jakubovsky
- * @version 0.0.12
- * @since Release 0.0.1 da aplicação
+ * @version 0.0.21
+ * @since Release 0.0.1
  *
- * Classe de utilização do Cucumber
+ * Classe de utilizacao do Cucumber
  */
 public class Conta {
     private int accountBalance;
     private boolean isSpecial;
     private int transferCount;
 
-    // Cenários de conta especial.
+    // cenarios de conta especial.
 
     /**
-     * Simula uma tentativa de operação de um cliente especial com saldo negativo.
+     * Simula uma tentativa de operacao de um cliente especial com saldo negativo.
      *
      * @param int1 Define o valor do saldo
      */
@@ -30,10 +30,10 @@ public class Conta {
     }
 
     /**
-     * Simula uma tentativa de operação de um cliente especial com
+     * Simula uma tentativa de operacao de um cliente especial com
      * saldo negativo realizando um saque.
      *
-     * @param int1 Define o valor da transação
+     * @param int1 Define o valor da transacao
      */
     @When("for solicitado um saque no valor de {int} reais")
     public void for_solicitado_um_saque_no_valor_de_reais(Integer int1) {
@@ -41,7 +41,7 @@ public class Conta {
     }
 
     /**
-     * Simula um cenário da realização de uma operação de um cliente
+     * Simula um cenario da realização de uma operacao de um cliente
      * especial com saldo negativo.
      *
      * @param int1 Define o valor final do saldo
@@ -59,10 +59,10 @@ public class Conta {
         assert isSpecial;
     }
 
-    // Cenários de conta comum.
+    // cenarios de conta comum.
 
     /**
-     * Simula uma tentativa de operação de um cliente comum com saldo negativo.
+     * Simula uma tentativa de operacao de um cliente comum com saldo negativo.
      *
      * @param int1 Define o valor do saldo
      */
@@ -73,10 +73,10 @@ public class Conta {
     }
 
     /**
-     * Simula uma tentativa de operação de um cliente comum com
+     * Simula uma tentativa de operacao de um cliente comum com
      * saldo negativo realizando um saque.
      *
-     * @param int1 Define o valor da transação
+     * @param int1 Define o valor da transacao
      */
     @When("solicitar um saque no valor de {int} reais")
     public void solicitar_um_saque_no_valor_de_reais(Integer int1) {
@@ -84,7 +84,7 @@ public class Conta {
     }
 
     /**
-     * Simula um cenário da realização de uma operação de um cliente
+     * Simula um cenario da realização de uma operacao de um cliente
      * comum com saldo negativo.
      */
     @Then("não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente")
@@ -93,13 +93,13 @@ public class Conta {
     }
 
     /**
-     * Realiza a operação de saque.
+     * Realiza a operacao de saque.
      *
-     * @param ammount Define o valor do saque
+     * @param amount Define o valor do saque
      */
-    public void saque(int ammount) {
-        if(accountBalance >= ammount || isSpecial) {
-            accountBalance -= ammount;
+    public void saque(int amount) {
+        if(accountBalance >= amount || isSpecial) {
+            accountBalance -= amount;
             transferCount++;
         } else {
             System.out.println("Saldo Insuficiente");
