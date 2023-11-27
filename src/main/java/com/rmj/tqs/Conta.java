@@ -21,40 +21,40 @@ public class Conta {
     /**
      * Simula uma tentativa de operação de um cliente especial com saldo negativo.
      *
-     * @param arg1 Define o valor do saldo
+     * @param int1 Define o valor do saldo
      */
-    @Given("^Um cliente especial com saldo atual de -(\\d+) reais$")
-    public void um_cliente_especial_com_saldo_atual_de_reais(int arg1) {
+    @Given("Um cliente especial com saldo atual de {int} reais")
+    public void um_cliente_especial_com_saldo_atual_de_reais(Integer int1) {
         isSpecial = true;
-        accountBalance = arg1;
+        accountBalance = int1;
     }
 
     /**
      * Simula uma tentativa de operação de um cliente especial com
      * saldo negativo realizando um saque.
      *
-     * @param arg1 Define o valor da transação
+     * @param int1 Define o valor da transação
      */
-    @When("^for solicitado um saque no valor de (\\d+) reais$")
-    public void for_solicitado_un_saque_no_valor_de_reais(int arg1) {
-        saque(arg1);
+    @When("for solicitado um saque no valor de {int} reais")
+    public void for_solicitado_um_saque_no_valor_de_reais(Integer int1) {
+        saque(int1);
     }
 
     /**
      * Simula um cenário da realização de uma operação de um cliente
      * especial com saldo negativo.
      *
-     * @param arg1 Define o valor final do saldo
+     * @param int1 Define o valor final do saldo
      */
-    @Then("^deve efetuar o saque e atualizar o saldo da conta para -(\\d+) reais$")
-    public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(int arg1) {
-        assert arg1 == accountBalance;
+    @Then("deve efetuar o saque e atualizar o saldo da conta para {int} reais")
+    public void deve_efetuar_o_saque_e_atualizar_o_saldo_da_conta_para_reais(Integer int1) {
+        assert int1 == accountBalance;
     }
 
     /**
      * Simulação de resultados alternativos.
      */
-    @Then("^check more outcomes$")
+    @Then("check more outcomes")
     public void check_more_outcomes() {
         assert isSpecial;
     }
@@ -64,11 +64,11 @@ public class Conta {
     /**
      * Simula uma tentativa de operação de um cliente comum com saldo negativo.
      *
-     * @param arg1 Define o valor do saldo
+     * @param int1 Define o valor do saldo
      */
-    @Given("^Um cliente comum com saldo atual de -(\\d+) reais$")
-    public void um_cliente_comum_com_saldo_atual_de_reais(int arg1) {
-        accountBalance = arg1;
+    @Given("Um cliente comum com saldo atual de {int} reais")
+    public void um_cliente_comum_com_saldo_atual_de_reais(Integer int1) {
+        accountBalance = int1;
         isSpecial = false;
     }
 
@@ -76,19 +76,19 @@ public class Conta {
      * Simula uma tentativa de operação de um cliente comum com
      * saldo negativo realizando um saque.
      *
-     * @param arg1 Define o valor da transação
+     * @param int1 Define o valor da transação
      */
-    @When("^solicitar um saque no valor de (\\d+) reais$")
-    public void solicitar_um_saque_no_valor_de_reais(int arg1) {
-        saque(arg1);
+    @When("solicitar um saque no valor de {int} reais")
+    public void solicitar_um_saque_no_valor_de_reais(Integer int1) {
+        saque(int1);
     }
 
     /**
      * Simula um cenário da realização de uma operação de um cliente
      * comum com saldo negativo.
      */
-    @Then("^não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente$")
-    public void nao_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_Saldo_Insuficiente() {
+    @Then("não deve efetuar o saque e deve retornar a mensagem Saldo Insuficiente")
+    public void não_deve_efetuar_o_saque_e_deve_retornar_a_mensagem_saldo_insuficiente() {
         assert transferCount == 0;
     }
 
